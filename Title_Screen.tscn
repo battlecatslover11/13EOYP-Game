@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://blfi6l8dfsb7a"]
+
+[ext_resource type="Script" uid="uid://c5x7cxv2yhcxx" path="res://title_screen.gd" id="1_fqm6y"]
+[ext_resource type="Texture2D" uid="uid://d2gaf3lfuosqg" path="res://Screenshot 2026-08-03 114026.png" id="1_hgv8g"]
+
+[node name="TitleScreen" type="Control" unique_id=2136453904]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fqm6y")
+
+[node name="Screenshot20260803114026" type="Sprite2D" parent="." unique_id=1992629341]
+position = Vector2(575.75, 324.75003)
+scale = Vector2(1.1464498, 1.0833331)
+texture = ExtResource("1_hgv8g")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1246688203]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.75
+offset_top = -283.0
+offset_right = 190.75
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1963051965]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1743981199]
+layout_mode = 2
+
+[node name="Resolution" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=1568587114]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "1600x900"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1597756950]
+layout_mode = 2
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1369263530]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
