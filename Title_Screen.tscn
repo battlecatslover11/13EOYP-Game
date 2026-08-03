@@ -17,45 +17,37 @@ position = Vector2(575.75, 324.75003)
 scale = Vector2(1.1464498, 1.0833331)
 texture = ExtResource("1_hgv8g")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1246688203]
+[node name="OptionButton" type="Button" parent="." unique_id=163302085]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 201.0
+offset_right = 644.5161
+offset_bottom = 239.0
+text = "Option"
+
+[node name="StartButton" type="Button" parent="." unique_id=1597756950]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 145.0
+offset_right = 644.5161
+offset_bottom = 183.0
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1369263530]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -190.75
-offset_top = -283.0
-offset_right = 190.75
-offset_bottom = 283.0
+offset_left = -70.0
+offset_top = -67.0
+offset_right = 68.51611
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1963051965]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1743981199]
-layout_mode = 2
-
-[node name="Resolution" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=1568587114]
-layout_mode = 2
-item_count = 2
-popup/item_0/text = "1600x900"
-popup/item_0/id = 0
-popup/item_1/text = "1280x720"
-popup/item_1/id = 1
-
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1597756950]
-layout_mode = 2
-text = "Start"
-
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1369263530]
-layout_mode = 2
 text = "Quit"
 
-[connection signal="changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Resolution" to="." method="_on_resolution_item_selected"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

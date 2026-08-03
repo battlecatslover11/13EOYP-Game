@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bvk4r00bi0w7b"]
+
+[ext_resource type="Script" uid="uid://bo76wrfsob1wq" path="res://option_menu.gd" id="1_4l2hn"]
+
+[sub_resource type="GDScript" id="GDScript_4l2hn"]
+
+[node name="OptionMenu" type="Control" unique_id=422754439]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4l2hn")
+
+[node name="VolumeSlider" type="HSlider" parent="." unique_id=462794671]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.95386
+offset_top = 23.0
+offset_right = 273.95386
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+script = SubResource("GDScript_4l2hn")
+
+[node name="ResolutionButton" type="OptionButton" parent="." unique_id=1672487753]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.97144
+offset_top = -131.0
+offset_right = 132.97144
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 2
+popup/item_0/text = "1600x900"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+
+[node name="VolumeLabel" type="Label" parent="." unique_id=876866122]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -16.0
+offset_right = 93.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="ResolutionLabel" type="Label" parent="." unique_id=514734566]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -196.0
+offset_right = 93.0
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Resolution"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1034366154]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 538.0
+offset_right = 709.0
+offset_bottom = 588.0
+text = "Return"
+
+[node name="Volume" type="Label" parent="." unique_id=185985220]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 360.0
+offset_right = 518.0
+offset_bottom = 469.0
+theme_override_font_sizes/font_size = 30
+text = "100"
+
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="item_selected" from="ResolutionButton" to="." method="_on_resolution_button_item_selected"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
