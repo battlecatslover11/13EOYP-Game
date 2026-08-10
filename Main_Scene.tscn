@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://d2jrevs0bt4m2"]
 
-[node name="Node2D" type="Node2D" unique_id=542078179]
+[ext_resource type="Texture2D" uid="uid://c25yh60ymc7tn" path="res://placeholder grid.png" id="1_8sucx"]
+[ext_resource type="PackedScene" uid="uid://4s5un8f7wmr2" path="res://Player.tscn" id="2_7fr83"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fr83"]
+texture = ExtResource("1_8sucx")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vpnsq"]
+sources/0 = SubResource("TileSetAtlasSource_7fr83")
+
+[node name="FirstArea" type="Node2D" unique_id=542078179]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1472983157]
+tile_set = SubResource("TileSet_vpnsq")
+format = 2
+layer_0/tile_data = PackedInt32Array(65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 65529, 0, 0, 65528, 0, 0, 65527, 0, 0, 65526, 0, 0, 65525, 0, 0, 65524, 0, 0, 65523, 0, 0, 65522, 0, 0, 65521, 0, 0, 65520, 0, 0, 65519, 0, 0, 65518, 0, 0, 65517, 0, 0, 65516, 0, 0, 65515, 0, 0, 65514, 0, 0, 65513, 0, 0, 65512, 0, 0, 65511, 0, 0, 65510, 0, 0, 65509, 0, 0, 65508, 0, 0, 65507, 0, 0, 65506, 0, 0, 65505, 0, 0, 65504, 0, 0, 65503, 0, 0, 65502, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=302421990]
+zoom = Vector2(1.75, 1.75)
+
+[node name="Player" parent="." unique_id=965177333 instance=ExtResource("2_7fr83")]
+position = Vector2(0, 4)

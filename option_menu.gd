@@ -1,6 +1,6 @@
 extends Control
 
-var volume = 100
+@onready var volume = 100
 @onready var VolumeLabel = $Volume
 
 func _on_volume_value_changed(value):
@@ -17,7 +17,7 @@ func _on_resolution_button_item_selected(index):
 func _on_return_button_pressed():
 	get_tree().change_scene_to_file("res://Title_Screen.tscn")
 
-func _on_volume_slider_value_changed(value):
-	VolumeLabel.textContent = value
+func _on_volume_slider_value_changed(volume):
+	VolumeLabel.text = str(int(volume))
 	
 	
