@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c25yh60ymc7tn"
-path="res://.godot/imported/placeholder grid.png-83e2775169143f390eb262cff39f8d3b.ctex"
+path="res://.godot/imported/placeholder grid.png-60d1e3d311fc6f95a5e4d09c731005fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholder grid.png"
-dest_files=["res://.godot/imported/placeholder grid.png-83e2775169143f390eb262cff39f8d3b.ctex"]
+source_file="res://BlockAssets/placeholder grid.png"
+dest_files=["res://.godot/imported/placeholder grid.png-60d1e3d311fc6f95a5e4d09c731005fe.ctex"]
 
 [params]
 

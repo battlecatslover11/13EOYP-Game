@@ -15,7 +15,7 @@ func _on_resolution_button_item_selected(index):
 			DisplayServer.window_set_size(Vector2i(1280,720))
 
 func _on_return_button_pressed():
-	get_tree().change_scene_to_file("res://Title_Screen.tscn")
+	get_tree().change_scene_to_file("res://MenuAssets/Title_Screen.tscn")
 
 func _on_volume_slider_value_changed(volume):
 	VolumeLabel.text = str(int(volume))

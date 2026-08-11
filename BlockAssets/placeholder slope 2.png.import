@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8y04gwmli5ss"
-path="res://.godot/imported/placeholder player.png-7f17b7bac8a9dcb54674e73f1020d00d.ctex"
+uid="uid://kcyqn0apcj5d"
+path="res://.godot/imported/placeholder slope 2.png-c393fefce7c2b24a9699c0d977eb990f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placeholder player.png"
-dest_files=["res://.godot/imported/placeholder player.png-7f17b7bac8a9dcb54674e73f1020d00d.ctex"]
+source_file="res://BlockAssets/placeholder slope 2.png"
+dest_files=["res://.godot/imported/placeholder slope 2.png-c393fefce7c2b24a9699c0d977eb990f.ctex"]
 
 [params]
 

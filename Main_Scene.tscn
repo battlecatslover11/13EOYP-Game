@@ -1,24 +1,42 @@
 [gd_scene format=3 uid="uid://d2jrevs0bt4m2"]
 
-[ext_resource type="Texture2D" uid="uid://c25yh60ymc7tn" path="res://placeholder grid.png" id="1_8sucx"]
-[ext_resource type="PackedScene" uid="uid://4s5un8f7wmr2" path="res://Player.tscn" id="2_7fr83"]
+[ext_resource type="Texture2D" uid="uid://c25yh60ymc7tn" path="res://BlockAssets/placeholder grid.png" id="1_8sucx"]
+[ext_resource type="PackedScene" uid="uid://4s5un8f7wmr2" path="res://PlayerAssets/Player.tscn" id="2_7fr83"]
+[ext_resource type="Texture2D" uid="uid://8c764ksmlags" path="res://BlockAssets/placeholder slope.png" id="2_tkmsp"]
+[ext_resource type="Texture2D" uid="uid://kcyqn0apcj5d" path="res://BlockAssets/placeholder slope 2.png" id="3_5yw3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fr83"]
 texture = ExtResource("1_8sucx")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5yw3w"]
+texture = ExtResource("2_tkmsp")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.10152626, 0, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtktj"]
+texture = ExtResource("3_5yw3w")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0.17985916, 0.17985916, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_vpnsq"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7fr83")
+sources/1 = SubResource("TileSetAtlasSource_5yw3w")
+sources/3 = SubResource("TileSetAtlasSource_qtktj")
 
 [node name="FirstArea" type="Node2D" unique_id=542078179]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1472983157]
 tile_set = SubResource("TileSet_vpnsq")
 format = 2
-layer_0/tile_data = PackedInt32Array(65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 65529, 0, 0, 65528, 0, 0, 65527, 0, 0, 65526, 0, 0, 65525, 0, 0, 65524, 0, 0, 65523, 0, 0, 65522, 0, 0, 65521, 0, 0, 65520, 0, 0, 65519, 0, 0, 65518, 0, 0, 65517, 0, 0, 65516, 0, 0, 65515, 0, 0, 65514, 0, 0, 65513, 0, 0, 65512, 0, 0, 65511, 0, 0, 65510, 0, 0, 65509, 0, 0, 65508, 0, 0, 65507, 0, 0, 65506, 0, 0, 65505, 0, 0, 65504, 0, 0, 65503, 0, 0, 65502, 0, 0)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=302421990]
-zoom = Vector2(1.75, 1.75)
+layer_0/tile_data = PackedInt32Array(65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -131054, 0, 0, -131053, 0, 0, -65517, 0, 0, -65516, 0, 0, 20, 0, 0, 21, 0, 0, 65558, 0, 0, 65559, 0, 0, 65560, 0, 0, 65561, 0, 0, 65562, 0, 0, 65563, 0, 0, 65564, 0, 0, 65565, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 65571, 0, 0, 65572, 0, 0, 65573, 0, 0, 65574, 0, 0, 65575, 0, 0, 65576, 0, 0, 65577, 0, 0, 65578, 0, 0, -131055, 0, 0, -65519, 0, 0, -65518, 0, 0, -131052, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, -65507, 0, 0, -65506, 0, 0, -65505, 0, 0, -65504, 0, 0, -65503, 0, 0, 30, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, 23, 0, 0, 22, 0, 0, 65566, 0, 0, 65567, 0, 0, 65568, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0, 45, 0, 0, 46, 0, 0, 65579, 0, 0, 65570, 0, 0, 65569, 0, 0, 65557, 0, 0, 65556, 0, 0, 65555, 0, 0, 65554, 0, 0, 65553, 0, 0, 65552, 0, 0, 65551, 0, 0, 65550, 0, 0, 65549, 0, 0, 65548, 0, 0, 65547, 0, 0, 65546, 0, 0, 65545, 0, 0, 65544, 0, 0, 65543, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 11, 0, 0, 10, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 65538, 0, 0, 65537, 0, 0, 65536, 0, 0, 131071, 0, 0, 131070, 0, 0, 131069, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 131064, 0, 0, 131063, 0, 0, 131062, 0, 0, 65526, 1, 0, -65527, 1, 0, -131056, 1, 0, -131051, 3, 0, -65502, 3, 0, 47, 3, 0, 65580, 0, 0, 65581, 0, 0, 65582, 0, 0, 65583, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65516, 0, 0, 65515, 0, 0, 65514, 0, 0, 65513, 0, 0, 65512, 0, 0)
 
 [node name="Player" parent="." unique_id=965177333 instance=ExtResource("2_7fr83")]
 position = Vector2(0, 4)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=302421990]
+position = Vector2(0, -4)
+zoom = Vector2(1.75, 1.75)
+position_smoothing_enabled = true
