@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c2ix3082ubx1p"]
+
+[ext_resource type="Texture2D" uid="uid://c80sfudck02y3" path="res://EnemyAssets/placeholder enemy.png" id="1_1d362"]
+[ext_resource type="Script" uid="uid://1vlls58dbsj0" path="res://EnemyAssets/swordman_enemy.gd" id="1_gfhjj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpnsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1d362")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q30hd"]
+size = Vector2(14, 14)
+
+[node name="Swordman" type="Area2D" unique_id=2008949987]
+script = ExtResource("1_gfhjj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=789280304]
+sprite_frames = SubResource("SpriteFrames_vpnsq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=359001685]
+shape = SubResource("RectangleShape2D_q30hd")
+
+[node name="Timer" type="Timer" parent="." unique_id=1343354093]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

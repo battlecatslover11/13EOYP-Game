@@ -76,9 +76,9 @@ func _physics_process(delta):
 				
 	velocity.y += gravity
 	move_and_slide()
-		
+
 func _on_dash_timer_timeout():
 	dashing = false
-	
+
 func _on_dash_timer_2_timeout():
 	dash_buffer = true

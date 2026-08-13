@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://4s5un8f7wmr2" path="res://PlayerAssets/Player.tscn" id="2_7fr83"]
 [ext_resource type="Texture2D" uid="uid://8c764ksmlags" path="res://BlockAssets/placeholder slope.png" id="2_tkmsp"]
 [ext_resource type="Texture2D" uid="uid://kcyqn0apcj5d" path="res://BlockAssets/placeholder slope 2.png" id="3_5yw3w"]
+[ext_resource type="PackedScene" uid="uid://c2ix3082ubx1p" path="res://EnemyAssets/Swordman_Enemy.tscn" id="5_qtktj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fr83"]
 texture = ExtResource("1_8sucx")
@@ -40,3 +41,8 @@ position = Vector2(0, 4)
 position = Vector2(0, -4)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
+
+[node name="Enemies" type="Node2D" parent="." unique_id=933531342]
+
+[node name="Swordman" parent="Enemies" unique_id=2008949987 instance=ExtResource("5_qtktj")]
+position = Vector2(127, -8)
