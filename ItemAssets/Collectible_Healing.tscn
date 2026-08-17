@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://6r0wsqwwbioy"]
+
+[ext_resource type="Script" uid="uid://ca3drt1mvux30" path="res://Scripts/collectible_healing.gd" id="1_5ulxr"]
+[ext_resource type="Texture2D" uid="uid://cnyapltg2gbo6" path="res://ItemAssets/Healing_Item.png" id="2_7mlcf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpnsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7mlcf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpnsq"]
+size = Vector2(8, 8)
+
+[node name="Healing_Item" type="Area2D" unique_id=1233797065]
+script = ExtResource("1_5ulxr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1014532807]
+position = Vector2(-2.3841858e-07, 2.3841858e-07)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_vpnsq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=308634606]
+shape = SubResource("RectangleShape2D_vpnsq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

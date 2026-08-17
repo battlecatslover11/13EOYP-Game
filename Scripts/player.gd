@@ -10,6 +10,7 @@ var dashing = false
 var dash_buffer = true
 var dir: float = 0
 var dash_count = 1
+var player_health = 3
 
 var wallcontact_coyote: float = 0.0
 const wallcontact_coyotetime: float = 0.2
@@ -32,7 +33,7 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, dir * dashspeed, velocity_weight)
 	else:
 		velocity.x = lerp(velocity.x, x_input * max_speed, velocity_weight)
-
+	
 	if x_input > 0:
 		dir = 1
 		flip.flip_h = false

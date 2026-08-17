@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvk4r00bi0w7b"]
 
-[ext_resource type="Script" uid="uid://bo76wrfsob1wq" path="res://MenuAssets/option_menu.gd" id="1_4l2hn"]
+[ext_resource type="Script" uid="uid://bo76wrfsob1wq" path="res://Scripts/option_menu.gd" id="1_4l2hn"]
 
 [sub_resource type="GDScript" id="GDScript_4l2hn"]
 

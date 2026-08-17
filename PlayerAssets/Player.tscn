@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4s5un8f7wmr2"]
 
-[ext_resource type="Script" uid="uid://cm0ei8l3mqh0x" path="res://PlayerAssets/player.gd" id="1_kpjcp"]
+[ext_resource type="Script" uid="uid://cm0ei8l3mqh0x" path="res://Scripts/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://c8y04gwmli5ss" path="res://PlayerAssets/placeholder player.png" id="1_xhfnw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kpjcp"]

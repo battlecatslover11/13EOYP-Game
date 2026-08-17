@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://8c764ksmlags" path="res://BlockAssets/placeholder slope.png" id="2_tkmsp"]
 [ext_resource type="Texture2D" uid="uid://kcyqn0apcj5d" path="res://BlockAssets/placeholder slope 2.png" id="3_5yw3w"]
 [ext_resource type="PackedScene" uid="uid://c2ix3082ubx1p" path="res://EnemyAssets/Swordman_Enemy.tscn" id="5_qtktj"]
+[ext_resource type="PackedScene" uid="uid://6r0wsqwwbioy" path="res://ItemAssets/Collectible_Healing.tscn" id="6_654x7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fr83"]
 texture = ExtResource("1_8sucx")
@@ -27,6 +28,8 @@ sources/0 = SubResource("TileSetAtlasSource_7fr83")
 sources/1 = SubResource("TileSetAtlasSource_5yw3w")
 sources/3 = SubResource("TileSetAtlasSource_qtktj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpnsq"]
+
 [node name="FirstArea" type="Node2D" unique_id=542078179]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1472983157]
@@ -46,3 +49,12 @@ position_smoothing_enabled = true
 
 [node name="Swordman" parent="Enemies" unique_id=2008949987 instance=ExtResource("5_qtktj")]
 position = Vector2(127, -8)
+
+[node name="Healing_Item" parent="." unique_id=1233797065 instance=ExtResource("6_654x7")]
+position = Vector2(-2, -43)
+
+[node name="Collisions" type="StaticBody2D" parent="." unique_id=1132021399]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions" unique_id=1549076113]
+position = Vector2(27, -9)
+shape = SubResource("RectangleShape2D_vpnsq")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blfi6l8dfsb7a"]
 
-[ext_resource type="Script" uid="uid://c5x7cxv2yhcxx" path="res://MenuAssets/title_screen.gd" id="1_fqm6y"]
+[ext_resource type="Script" uid="uid://c5x7cxv2yhcxx" path="res://Scripts/title_screen.gd" id="1_fqm6y"]
 [ext_resource type="Texture2D" uid="uid://d2gaf3lfuosqg" path="res://MenuAssets/Screenshot 2026-08-03 114026.png" id="1_hgv8g"]
 
 [node name="TitleScreen" type="Control" unique_id=2136453904]
