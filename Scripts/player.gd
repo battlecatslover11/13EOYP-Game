@@ -11,6 +11,10 @@ var dash_buffer = true
 var dir: float = 0
 var dash_count = 1
 var player_health = 3
+var can_slash: bool = true
+@export var slash_time:float = 0.2
+@export var sword_return_time:float = 0.5
+@export var weapon_damage:float = 1
 
 var wallcontact_coyote: float = 0.0
 const wallcontact_coyotetime: float = 0.2
@@ -61,7 +65,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
 		if JumpBufferTimer.is_stopped():
 			JumpBufferTimer.start()
-			
+	
+	if Input.is_action_just_pressed("attack") and can_slash:
+		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Swing") 
+		can_slash = false
+	
 	if Input.is_action_just_pressed("dash") and dash_buffer and dash_count == 1:
 		dashing = true
 		dash_buffer = false
@@ -83,3 +91,8 @@ func _on_dash_timer_timeout():
 
 func _on_dash_timer_2_timeout():
 	dash_buffer = true
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Sword_Swing":
+		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Swing") 

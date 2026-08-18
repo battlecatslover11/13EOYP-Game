@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cm0ei8l3mqh0x" path="res://Scripts/player.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://c8y04gwmli5ss" path="res://PlayerAssets/placeholder player.png" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://cqvw2fenrfxl3" path="res://PlayerAssets/PlaceHolder Sword.png" id="3_okw4i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kpjcp"]
 animations = [{
@@ -14,6 +15,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_okw4i"]
+resource_name = "Sword_Return"
+step = 0.05
+
+[sub_resource type="Animation" id="Animation_qcf6d"]
+resource_name = "Sword_Swing"
+length = 0.3
+step = 0.05
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vypit"]
+_data = {
+&"Sword_Return": SubResource("Animation_okw4i"),
+&"Sword_Swing": SubResource("Animation_qcf6d")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
 size = Vector2(16, 16)
 
@@ -23,6 +39,15 @@ script = ExtResource("1_kpjcp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=738655022]
 position = Vector2(1, -15)
 sprite_frames = SubResource("SpriteFrames_kpjcp")
+
+[node name="Sword" type="Sprite2D" parent="AnimatedSprite2D" unique_id=347060735]
+position = Vector2(12, 5)
+rotation = -5.8276544
+texture = ExtResource("3_okw4i")
+offset = Vector2(1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/Sword" unique_id=187767057]
+libraries/ = SubResource("AnimationLibrary_vypit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155710697]
 position = Vector2(1, -15)
@@ -41,5 +66,6 @@ wait_time = 0.3
 [node name="DashTimer2" type="Timer" parent="." unique_id=830608247]
 wait_time = 0.4
 
+[connection signal="animation_finished" from="AnimatedSprite2D/Sword/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashTimer2" to="." method="_on_dash_timer_2_timeout"]
