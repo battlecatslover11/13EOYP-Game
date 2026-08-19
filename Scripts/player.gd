@@ -12,8 +12,8 @@ var dir: float = 0
 var dash_count = 1
 var player_health = 3
 var can_slash: bool = true
-@export var slash_time:float = 0.2
-@export var sword_return_time:float = 0.5
+@export var slash_time:float = 0.1
+@export var sword_return_time:float = 0.4
 @export var weapon_damage:float = 1
 
 var wallcontact_coyote: float = 0.0
@@ -41,9 +41,11 @@ func _physics_process(delta):
 	if x_input > 0:
 		dir = 1
 		flip.flip_h = false
+
 	elif x_input < 0:
 		dir = -1
 		flip.flip_h = true
+	
 		
 	if is_on_floor():
 		coyote_activate = false
@@ -67,12 +69,13 @@ func _physics_process(delta):
 			JumpBufferTimer.start()
 	
 	if Input.is_action_just_pressed("attack") and can_slash:
+		$AnimatedSprite2D/Sword/AnimationPlayer.speed_scale = $AnimatedSprite2D/Sword/AnimationPlayer.get_animation("Sword_Swing").length / slash_time
 		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Swing") 
-		can_slash = false
+		can_slash = false	
 	
 	if Input.is_action_just_pressed("dash") and dash_buffer and dash_count == 1:
 		dashing = true
-		dash_buffer = false
+		dash_buffer = false 
 		dash_count = 0
 		$DashTimer.start()
 		$DashTimer2.start()
@@ -95,4 +98,7 @@ func _on_dash_timer_2_timeout():
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Sword_Swing":
-		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Swing") 
+		$AnimatedSprite2D/Sword/AnimationPlayer.speed_scale = $AnimatedSprite2D/Sword/AnimationPlayer.get_animation("Sword_Return").length / sword_return_time
+		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Return")
+	else:
+		can_slash = true
