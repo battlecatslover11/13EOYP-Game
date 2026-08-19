@@ -3,10 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c80sfudck02y3" path="res://EnemyAssets/placeholder enemy.png" id="1_1d362"]
 [ext_resource type="Script" uid="uid://d0bncn4k42xwf" path="res://EnemyAssets/swordman_enemy.gd" id="1_gfhjj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpnsq"]
-size = Vector2(14, 14)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vpnsq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_q30hd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -17,17 +14,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1059502171]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q30hd"]
+size = Vector2(18, 18)
+
+[node name="Enemy" type="AnimatedSprite2D" unique_id=528609356]
+sprite_frames = SubResource("SpriteFrames_q30hd")
 script = ExtResource("1_gfhjj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=119432760]
-shape = SubResource("RectangleShape2D_vpnsq")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1875400361]
-sprite_frames = SubResource("SpriteFrames_vpnsq")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1269014527]
 target_position = Vector2(10, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1575354581]
 target_position = Vector2(-10, 0)
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=591508521]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1270408558]
+shape = SubResource("RectangleShape2D_q30hd")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

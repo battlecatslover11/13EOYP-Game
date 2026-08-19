@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @onready var CoyoteTimer = $CoyoteTimer
 @onready var JumpBufferTimer = $JumpBufferTimer
 var coyote_activate:bool = false
@@ -10,11 +12,13 @@ var dashing = false
 var dash_buffer = true
 var dir: float = 0
 var dash_count = 1
-var player_health = 3
 var can_slash: bool = true
 @export var slash_time:float = 0.1
 @export var sword_return_time:float = 0.4
 @export var weapon_damage:float = 1
+@export var max_health = 3
+@onready var current_health:int = max_health
+
 
 var wallcontact_coyote: float = 0.0
 const wallcontact_coyotetime: float = 0.2
@@ -102,3 +106,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Return")
 	else:
 		can_slash = true
+	
+func _on_hurtbox_area_entered(area):
+	if area.name == "hurtbox":
+		current_health -= 1
+		if current_health < 0:
+			current_health = max_health
+		print (current_health)

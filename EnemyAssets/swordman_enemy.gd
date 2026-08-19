@@ -13,3 +13,7 @@ func _process(delta):
 		direction = 1
 		
 	position.x += direction * SPEED * delta
+
+func _on_hurtbox_area_entered(area):
+	if area == $hurtbox: return
+	print("hit")

@@ -1,8 +1,0 @@
-class_name Health
-extends Node
-
-signal health_changed(diff: int)
-signal health_depleted
-
-@export var max_health:int = 3
-@onready var health:int = max_health
