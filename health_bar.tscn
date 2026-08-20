@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bxnol51pl4yiu"]
+
+[ext_resource type="Texture2D" uid="uid://dopidk3mrfhnw" path="res://PlayerAssets/Health_Bar.png" id="1_m7ell"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdjhy"]
+atlas = ExtResource("1_m7ell")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srckl"]
+atlas = ExtResource("1_m7ell")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r8bn"]
+atlas = ExtResource("1_m7ell")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxn08"]
+atlas = ExtResource("1_m7ell")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpnsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdjhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srckl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r8bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxn08")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Panel" type="Panel" unique_id=1470507596]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 37.0
+offset_bottom = 7.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=866581007]
+position = Vector2(19, 3)
+scale = Vector2(0.90625, 0.90625)
+sprite_frames = SubResource("SpriteFrames_vpnsq")

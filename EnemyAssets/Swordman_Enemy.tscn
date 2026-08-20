@@ -22,10 +22,10 @@ sprite_frames = SubResource("SpriteFrames_q30hd")
 script = ExtResource("1_gfhjj")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1269014527]
-target_position = Vector2(10, 0)
+target_position = Vector2(9, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1575354581]
-target_position = Vector2(-10, 0)
+target_position = Vector2(-9, 0)
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=591508521]
 
