@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://demnq0hig5s82"]
+
+[ext_resource type="Texture2D" uid="uid://ck6p3wn6c2upa" path="res://PlayerAssets/Hearts.png" id="1_1xhc3"]
+
+[node name="heartGUI" type="Panel" unique_id=1780592984]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(15, 10)
+offset_right = 15.0
+offset_bottom = 11.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981734064]
+position = Vector2(7, 6)
+scale = Vector2(1.3125, 1.3125)
+texture = ExtResource("1_1xhc3")
+hframes = 2

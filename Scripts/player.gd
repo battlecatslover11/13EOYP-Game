@@ -13,19 +13,18 @@ var dash_buffer = true
 var dir: float = 0
 var dash_count = 1
 var can_slash: bool = true
-var knockback_speed = 500
-var knockback_power = 25
+var knockback_speed = 1000
+var knockback_power = 15
 @export var slash_time:float = 0.1
 @export var sword_return_time:float = 0.4
 @export var weapon_damage:float = 1
 @export var max_health = 3
 @onready var current_health:int = max_health
 @onready var effects = $Effect
-@onready var hurt_timer = $HurtTimer
+@onready var hurt_timer = $HurtTimer 
 
 func ready():
 	effects.play("RESET")
-
 var wallcontact_coyote: float = 0.0
 const wallcontact_coyotetime: float = 0.2
 
