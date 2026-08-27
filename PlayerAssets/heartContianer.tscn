@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dmn61dijmo0dp" path="res://PlayerAssets/heart_contianer.gd" id="1_t6cbg"]
 
 [node name="heartsContainer" type="HBoxContainer" unique_id=1813250179]
-offset_right = 184.0
-offset_bottom = 40.0
+layout_direction = 2
 theme_override_constants/separation = 48
 script = ExtResource("1_t6cbg")

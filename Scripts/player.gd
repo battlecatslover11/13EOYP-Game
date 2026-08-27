@@ -6,15 +6,18 @@ class_name Player
 @onready var JumpBufferTimer = $JumpBufferTimer
 var coyote_activate:bool = false
 
+signal health_changed 
+
 const jump_height:float = -330.0
 var gravity: float = 12.0
 var dashing = false
 var dash_buffer = true
-var dir: float = -1
+var dir: float = 1
 var dash_count = 1
 var can_slash: bool = true
 var knockback_speed = 250
 var knockback_power = 25
+var is_hurt:bool = false
 @export var slash_time:float = 0.1
 @export var sword_return_time:float = 0.4
 @export var weapon_damage:float = 1
@@ -22,6 +25,7 @@ var knockback_power = 25
 @onready var current_health:int = max_health
 @onready var effects = $Effect
 @onready var hurt_timer = $HurtTimer 
+@onready var death_timer = $DeathTimer
 
 func ready():
 	effects.play("RESET")
@@ -113,16 +117,23 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		can_slash = true
 	
 func _on_hurtbox_area_entered(area):
+	if is_hurt:
+		return
 	if area.name == "hurtbox":
 		current_health -= 1
-		if current_health < 0:
-			current_health = max_health
-		print (current_health)
+		if current_health <= 0:
+			$AnimatedSprite2D2.play()
+			death_timer.start()
+			get_tree().change_scene_to_file("res://MenuAssets/death_menu.tscn")
+		health_changed.emit(current_health)
+		is_hurt = true
+		
 		knockback()
 		effects.play("hurt_blink")
 		hurt_timer.start()
 		await hurt_timer.timeout
 		effects.play("RESET")
+		is_hurt = false
 		
 		
 func knockback():

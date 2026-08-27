@@ -66,7 +66,3 @@ shape = SubResource("RectangleShape2D_vpnsq")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1446998581]
 
 [node name="heartsContainer" parent="CanvasLayer" unique_id=1813250179 instance=ExtResource("7_lhke2")]
-offset_left = 22.0
-offset_top = 17.0
-offset_right = 206.0
-offset_bottom = 57.0

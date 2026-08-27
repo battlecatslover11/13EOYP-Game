@@ -17,6 +17,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q30hd"]
 size = Vector2(18, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpnsq"]
+size = Vector2(16, 16)
+
 [node name="Enemy" type="AnimatedSprite2D" unique_id=528609356]
 sprite_frames = SubResource("SpriteFrames_q30hd")
 script = ExtResource("1_gfhjj")
@@ -31,5 +34,10 @@ target_position = Vector2(-9, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1270408558]
 shape = SubResource("RectangleShape2D_q30hd")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=533710161]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=82065274]
+shape = SubResource("RectangleShape2D_vpnsq")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
