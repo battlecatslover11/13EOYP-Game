@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2ix3082ubx1p"]
 
 [ext_resource type="Texture2D" uid="uid://c80sfudck02y3" path="res://EnemyAssets/placeholder enemy.png" id="1_1d362"]
-[ext_resource type="Script" uid="uid://d0bncn4k42xwf" path="res://EnemyAssets/swordman_enemy.gd" id="1_gfhjj"]
+[ext_resource type="Script" uid="uid://d0bncn4k42xwf" path="res://Scripts/swordman_enemy.gd" id="1_gfhjj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q30hd"]
 animations = [{
