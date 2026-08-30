@@ -221,6 +221,9 @@ region = Rect2(375, 375, 125, 125)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vypit")
 }, {
 "duration": 1.0,
@@ -269,7 +272,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_aakid")
 }],
 "loop": 0,
-"name": &"new_animation",
+"name": &"explode",
 "speed": 20.0
 }]
 
@@ -331,15 +334,13 @@ position = Vector2(1, -15)
 shape = SubResource("RectangleShape2D_vpnsq")
 
 [node name="HurtTimer" type="Timer" parent="." unique_id=1242859910]
-wait_time = 0.5
+wait_time = 1.5
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1172276891]
 position = Vector2(2.0000005, -16.000002)
 scale = Vector2(0.4175, 0.4175)
 sprite_frames = SubResource("SpriteFrames_q30hd")
-animation = &"new_animation"
-frame = 15
-frame_progress = 1.0
+animation = &"explode"
 
 [node name="DeathTimer" type="Timer" parent="." unique_id=1387865381]
 wait_time = 0.5
@@ -348,3 +349,4 @@ wait_time = 0.5
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashTimer2" to="." method="_on_dash_timer_2_timeout"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

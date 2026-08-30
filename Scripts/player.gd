@@ -18,6 +18,7 @@ var can_slash: bool = true
 var knockback_speed = 250
 var knockback_power = 25
 var is_hurt:bool = false
+var enemy_collisions = []
 @export var slash_time:float = 0.1
 @export var sword_return_time:float = 0.4
 @export var weapon_damage:float = 1
@@ -25,7 +26,7 @@ var is_hurt:bool = false
 @onready var current_health:int = max_health
 @onready var effects = $Effect
 @onready var hurt_timer = $HurtTimer 
-@onready var death_timer = $DeathTimer
+
 
 func ready():
 	effects.play("RESET")
@@ -41,8 +42,10 @@ const friction:float = 8
 const wall_friction:float = 22.5
 const dashspeed = 420
 @onready var flip = $AnimatedSprite2D
+@onready var death_sprite = $AnimatedSprite2D2
 
 func _physics_process(delta):
+	set_physics_process(true)
 	var x_input := Input.get_axis("left", "right")
 	var velocity_weight: float = delta * (acceleration if x_input else friction)
 	
@@ -107,7 +110,7 @@ func _on_dash_timer_timeout():
 
 func _on_dash_timer_2_timeout():
 	dash_buffer = true
-
+	
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Sword_Swing":
@@ -120,14 +123,16 @@ func _on_hurtbox_area_entered(area):
 	if is_hurt:
 		return
 	if area.name == "hurtbox":
+		enemy_collisions.append(area)
 		current_health -= 1
 		if current_health <= 0:
-			$AnimatedSprite2D2.play()
-			death_timer.start()
+			set_physics_process(false)
+			death_sprite.play("explode")
+			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file("res://MenuAssets/death_menu.tscn")
 		health_changed.emit(current_health)
 		is_hurt = true
-		
+			
 		knockback()
 		effects.play("hurt_blink")
 		hurt_timer.start()
@@ -135,9 +140,12 @@ func _on_hurtbox_area_entered(area):
 		effects.play("RESET")
 		is_hurt = false
 		
-		
 func knockback():
 	velocity.x = knockback_speed
 	var knockback_direction = velocity.x * -dir
 	velocity.x = knockback_direction
 	move_and_slide()
+
+
+func _on_hurtbox_area_exited(area):
+	enemy_collisions.erase(area)

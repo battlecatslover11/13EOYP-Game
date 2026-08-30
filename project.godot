@@ -14,6 +14,10 @@ config/name="13PRG Game"
 run/main_scene="uid://blfi6l8dfsb7a"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[autoload]
+
+Global="*uid://cs3cj32cqlu27"
+
 [display]
 
 window/subwindows/embed_subwindows=false

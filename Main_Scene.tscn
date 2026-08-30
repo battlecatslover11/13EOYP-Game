@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2jrevs0bt4m2"]
 
-[ext_resource type="Script" uid="uid://bvr7s3qmxsmau" path="res://main_scene.gd" id="1_4ityq"]
+[ext_resource type="Script" uid="uid://bvr7s3qmxsmau" path="res://Scripts/main_scene.gd" id="1_4ityq"]
 [ext_resource type="Texture2D" uid="uid://c25yh60ymc7tn" path="res://BlockAssets/placeholder grid.png" id="1_8sucx"]
 [ext_resource type="PackedScene" uid="uid://4s5un8f7wmr2" path="res://PlayerAssets/Player.tscn" id="2_7fr83"]
 [ext_resource type="Texture2D" uid="uid://8c764ksmlags" path="res://BlockAssets/placeholder slope.png" id="2_tkmsp"]
