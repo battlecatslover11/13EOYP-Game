@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c8y04gwmli5ss" path="res://PlayerAssets/placeholder player.png" id="1_xhfnw"]
 [ext_resource type="Texture2D" uid="uid://cqvw2fenrfxl3" path="res://PlayerAssets/PlaceHolder Sword.png" id="3_okw4i"]
 [ext_resource type="Texture2D" uid="uid://drhr52dvevjw1" path="res://PlayerAssets/explode.png" id="4_qcf6d"]
+[ext_resource type="Texture2D" uid="uid://b080sm3uqnfv0" path="res://PlayerAssets/untitled-pixel-art-sheet (1).png" id="5_vypit"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vpnsq"]
 animations = [{
@@ -296,6 +297,9 @@ offset = Vector2(8, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D/Sword" unique_id=187767057]
 libraries/ = SubResource("AnimationLibrary_vypit")
 
+[node name="flip_anim" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=2134565802]
+root_node = NodePath("../Sword")
+
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D" unique_id=1219432511]
 clip_children = 2
 offset_left = -8.0
@@ -344,6 +348,10 @@ animation = &"explode"
 
 [node name="DeathTimer" type="Timer" parent="." unique_id=1387865381]
 wait_time = 0.5
+
+[node name="UntitledPixelArtSheet(1)" type="Sprite2D" parent="." unique_id=1758585464]
+position = Vector2(-30, -23)
+texture = ExtResource("5_vypit")
 
 [connection signal="animation_finished" from="AnimatedSprite2D/Sword/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

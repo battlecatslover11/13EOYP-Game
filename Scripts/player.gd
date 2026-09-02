@@ -15,7 +15,7 @@ var dash_buffer = true
 var dir: float = 1
 var dash_count = 1
 var can_slash: bool = true
-var knockback_speed = 250
+var knockback_speed = 500
 var knockback_power = 25
 var is_hurt:bool = false
 var enemy_collisions = []
@@ -130,6 +130,7 @@ func _on_hurtbox_area_entered(area):
 			death_sprite.play("explode")
 			await get_tree().create_timer(0.5).timeout
 			get_tree().change_scene_to_file("res://MenuAssets/death_menu.tscn")
+			current_health = 3
 		health_changed.emit(current_health)
 		is_hurt = true
 			

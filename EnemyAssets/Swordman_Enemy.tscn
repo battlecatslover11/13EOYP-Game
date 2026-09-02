@@ -2,8 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://c80sfudck02y3" path="res://EnemyAssets/placeholder enemy.png" id="1_1d362"]
 [ext_resource type="Script" uid="uid://d0bncn4k42xwf" path="res://Scripts/swordman_enemy.gd" id="1_gfhjj"]
+[ext_resource type="Script" uid="uid://cibrqxvo8butl" path="res://Scripts/healthcontrol.gd" id="2_xm5l3"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_q30hd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpxcd"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpnsq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -20,9 +24,18 @@ size = Vector2(18, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpnsq"]
 size = Vector2(16, 16)
 
-[node name="Enemy" type="AnimatedSprite2D" unique_id=528609356]
-sprite_frames = SubResource("SpriteFrames_q30hd")
+[node name="Enemy" type="CharacterBody2D" unique_id=1550805745]
 script = ExtResource("1_gfhjj")
+
+[node name="HealthControl" type="Node2D" parent="." unique_id=403373642]
+script = ExtResource("2_xm5l3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=319116283]
+visible = false
+shape = SubResource("RectangleShape2D_bpxcd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=224604378]
+sprite_frames = SubResource("SpriteFrames_vpnsq")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1269014527]
 target_position = Vector2(9, 0)
