@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b080sm3uqnfv0"
-path="res://.godot/imported/untitled-pixel-art-sheet (1).png-f027f9ee24f7cb012d6dc7d195a5474d.ctex"
+path="res://.godot/imported/Cooler Sword.png-8e8ec3bd080f6f7c42a352d469b50e39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerAssets/untitled-pixel-art-sheet (1).png"
-dest_files=["res://.godot/imported/untitled-pixel-art-sheet (1).png-f027f9ee24f7cb012d6dc7d195a5474d.ctex"]
+source_file="res://PlayerAssets/Cooler Sword.png"
+dest_files=["res://.godot/imported/Cooler Sword.png-8e8ec3bd080f6f7c42a352d469b50e39.ctex"]
 
 [params]
 

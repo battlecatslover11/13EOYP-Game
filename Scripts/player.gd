@@ -19,6 +19,7 @@ var knockback_speed = 500
 var knockback_power = 25
 var is_hurt:bool = false
 var enemy_collisions = []
+var current_dir = "right"
 @export var slash_time:float = 0.1
 @export var sword_return_time:float = 0.4
 @export var weapon_damage:float = 1
@@ -26,6 +27,7 @@ var enemy_collisions = []
 @onready var current_health:int = max_health
 @onready var effects = $Effect
 @onready var hurt_timer = $HurtTimer 
+
 
 
 func ready():
@@ -61,7 +63,14 @@ func _physics_process(delta):
 	elif x_input < 0:
 		dir = -1
 		flip.flip_h = true
-	
+		
+	if current_dir == "right":
+		$AnimatedSprite2D/flip_anim.play("look_left")
+		current_dir = "left"
+		
+	if current_dir == "left":
+		$AnimatedSprite2D/flip_anim.play("look_right")
+		current_dir = "right"
 		
 	if is_on_floor():
 		coyote_activate = false
