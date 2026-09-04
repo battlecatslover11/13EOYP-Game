@@ -16,6 +16,64 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_cyqb6"]
+resource_name = "Flip_Sword_Return"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.55),
+"transitions": PackedFloat32Array(-2, -2, 0.5),
+"update": 0,
+"values": [2.5918139392115793, 2.5918139392115793, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.55),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(-0.55, 0.65), Vector2(-0.7, 0.7)]
+}
+
+[sub_resource type="Animation" id="Animation_ssidq"]
+resource_name = "Flip_Sword_Swing"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(-2, 0.5),
+"update": 0,
+"values": [0.0, 2.5918139392115793]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.7252903e-09),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(-0.7, 0.7)]
+}
+
 [sub_resource type="Animation" id="Animation_vypit"]
 length = 0.001
 tracks/0/type = "value"
@@ -103,6 +161,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vypit"]
 _data = {
+&"Flip_Sword_Return": SubResource("Animation_cyqb6"),
+&"Flip_Sword_Swing": SubResource("Animation_ssidq"),
 &"RESET": SubResource("Animation_vypit"),
 &"Sword_Return": SubResource("Animation_okw4i"),
 &"Sword_Swing": SubResource("Animation_qcf6d")
@@ -134,10 +194,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 2),
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.7, 0.7), Vector2(-0.7, 0.7)]
+"values": [Vector2(-0.7, 0.7)]
 }
 
 [sub_resource type="Animation" id="Animation_vd6we"]
@@ -151,10 +211,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 2),
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.7, 0.7), Vector2(0.7, 0.7)]
+"values": [Vector2(0.7, 0.7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sw074"]
@@ -369,7 +429,7 @@ position = Vector2(1, -15)
 shape = SubResource("RectangleShape2D_kne1u")
 
 [node name="JumpBufferTimer" type="Timer" parent="." unique_id=1797866769]
-wait_time = 0.12
+wait_time = 0.24
 
 [node name="CoyoteTimer" type="Timer" parent="." unique_id=1638599402]
 wait_time = 0.05
@@ -379,7 +439,6 @@ one_shot = true
 wait_time = 0.3
 
 [node name="DashTimer2" type="Timer" parent="." unique_id=830608247]
-wait_time = 0.4
 
 [node name="Effect" type="AnimationPlayer" parent="." unique_id=2009653270]
 root_node = NodePath("../AnimatedSprite2D/ColorRect")
@@ -401,6 +460,8 @@ scale = Vector2(0.4175, 0.4175)
 sprite_frames = SubResource("SpriteFrames_q30hd")
 animation = &"explode"
 
+[node name="Attack_Cooldown" type="Timer" parent="." unique_id=1136098526]
+
 [node name="DeathTimer" type="Timer" parent="." unique_id=1387865381]
 wait_time = 0.5
 
@@ -409,3 +470,4 @@ wait_time = 0.5
 [connection signal="timeout" from="DashTimer2" to="." method="_on_dash_timer_2_timeout"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="timeout" from="Attack_Cooldown" to="." method="_on_attack_cooldown_timeout"]

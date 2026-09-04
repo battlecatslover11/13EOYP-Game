@@ -19,7 +19,6 @@ var knockback_speed = 500
 var knockback_power = 25
 var is_hurt:bool = false
 var enemy_collisions = []
-var current_dir = "right"
 @export var slash_time:float = 0.1
 @export var sword_return_time:float = 0.4
 @export var weapon_damage:float = 1
@@ -28,10 +27,9 @@ var current_dir = "right"
 @onready var effects = $Effect
 @onready var hurt_timer = $HurtTimer 
 
-
-
 func ready():
 	effects.play("RESET")
+	$AnimatedSprite2D/Sword.show_behind_parent = false
 var wallcontact_coyote: float = 0.0
 const wallcontact_coyotetime: float = 0.2
 
@@ -57,21 +55,20 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, x_input * max_speed, velocity_weight)
 	
 	if x_input > 0:
+		$AnimatedSprite2D/Sword.show_behind_parent = false
 		dir = 1
+		$AnimatedSprite2D/flip_anim.play("look_left")
 		flip.flip_h = false
 
 	elif x_input < 0:
+		$AnimatedSprite2D/Sword.show_behind_parent = true
 		dir = -1
+		$AnimatedSprite2D/flip_anim.play("look_right")
 		flip.flip_h = true
 		
-	if current_dir == "right":
-		$AnimatedSprite2D/flip_anim.play("look_left")
-		current_dir = "left"
-		
-	if current_dir == "left":
-		$AnimatedSprite2D/flip_anim.play("look_right")
-		current_dir = "right"
-		
+	if $Attack_Cooldown.is_stopped():
+		can_slash = true	
+	
 	if is_on_floor():
 		coyote_activate = false
 		gravity = lerp(gravity, 12.0, 12.0 * delta)
@@ -93,9 +90,15 @@ func _physics_process(delta):
 		if JumpBufferTimer.is_stopped():
 			JumpBufferTimer.start()
 	
-	if Input.is_action_just_pressed("attack") and can_slash:
+	if Input.is_action_just_pressed("attack") and can_slash and dir < 0:
 		$AnimatedSprite2D/Sword/AnimationPlayer.speed_scale = $AnimatedSprite2D/Sword/AnimationPlayer.get_animation("Sword_Swing").length / slash_time
 		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Swing") 
+		$Attack_Cooldown.start()
+		can_slash = false	
+	elif Input.is_action_just_pressed("attack") and can_slash and dir > 0:
+		$AnimatedSprite2D/Sword/AnimationPlayer.speed_scale = $AnimatedSprite2D/Sword/AnimationPlayer.get_animation("Flip_Sword_Swing").length / slash_time
+		$AnimatedSprite2D/Sword/AnimationPlayer.play("Flip_Sword_Swing") 
+		$Attack_Cooldown.start()
 		can_slash = false	
 	
 	if Input.is_action_just_pressed("dash") and dash_buffer and dash_count == 1:
@@ -121,10 +124,19 @@ func _on_dash_timer_2_timeout():
 	dash_buffer = true
 	
 
+	
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Sword_Swing":
 		$AnimatedSprite2D/Sword/AnimationPlayer.speed_scale = $AnimatedSprite2D/Sword/AnimationPlayer.get_animation("Sword_Return").length / sword_return_time
 		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Return")
+		$Attack_Cooldown.start()
+	else:
+		can_slash = true
+	if anim_name == "Flip_Sword_Swing":
+		$AnimatedSprite2D/Sword/AnimationPlayer.speed_scale = $AnimatedSprite2D/Sword/AnimationPlayer.get_animation("Flip_Sword_Return").length / sword_return_time
+		$AnimatedSprite2D/Sword/AnimationPlayer.play("Flip_Sword_Return")
+		$Attack_Cooldown.start()
 	else:
 		can_slash = true
 	
@@ -159,3 +171,8 @@ func knockback():
 
 func _on_hurtbox_area_exited(area):
 	enemy_collisions.erase(area)
+	
+
+
+func _on_attack_cooldown_timeout():
+	can_slash = true
