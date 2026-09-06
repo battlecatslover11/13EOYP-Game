@@ -123,22 +123,20 @@ func _on_dash_timer_timeout():
 func _on_dash_timer_2_timeout():
 	dash_buffer = true
 	
-
-	
-
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Sword_Swing":
 		$AnimatedSprite2D/Sword/AnimationPlayer.speed_scale = $AnimatedSprite2D/Sword/AnimationPlayer.get_animation("Sword_Return").length / sword_return_time
 		$AnimatedSprite2D/Sword/AnimationPlayer.play("Sword_Return")
-		$Attack_Cooldown.start()
 	else:
 		can_slash = true
 	if anim_name == "Flip_Sword_Swing":
 		$AnimatedSprite2D/Sword/AnimationPlayer.speed_scale = $AnimatedSprite2D/Sword/AnimationPlayer.get_animation("Flip_Sword_Return").length / sword_return_time
 		$AnimatedSprite2D/Sword/AnimationPlayer.play("Flip_Sword_Return")
-		$Attack_Cooldown.start()
 	else:
 		can_slash = true
+	can_slash = false
+	$Attack_Cooldown.start()
+	await $Attack_Cooldown.timeout
 	
 func _on_hurtbox_area_entered(area):
 	if is_hurt:
@@ -168,11 +166,8 @@ func knockback():
 	velocity.x = knockback_direction
 	move_and_slide()
 
-
 func _on_hurtbox_area_exited(area):
 	enemy_collisions.erase(area)
-	
-
 
 func _on_attack_cooldown_timeout():
 	can_slash = true
