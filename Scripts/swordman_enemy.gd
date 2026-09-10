@@ -15,6 +15,8 @@ func set_max_health(value: int):
 
 func ready():
 	max_health = 50
+	$hurtbox/CollisionShape2D.disabled = true
+	$hitbox/CollisionShape2D.disabled = true
 
 func take_damage(amount: int):
 	health -= amount

@@ -138,27 +138,27 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	$Attack_Cooldown.start()
 	await $Attack_Cooldown.timeout
 	
+func hurt_by_enemy(area):
+	current_health -= 1
+	if current_health <= 0:
+		set_physics_process(false)
+		death_sprite.play("explode")
+		await get_tree().create_timer(0.5).timeout
+		get_tree().change_scene_to_file("res://MenuAssets/death_menu.tscn")
+		current_health = 3
+	health_changed.emit(current_health)
+	is_hurt = true
+			
+	knockback()
+	effects.play("hurt_blink")
+	hurt_timer.start()
+	await hurt_timer.timeout
+	effects.play("RESET")
+	is_hurt = false
+
 func _on_hurtbox_area_entered(area):
-	if is_hurt:
-		return
 	if area.name == "hurtbox":
 		enemy_collisions.append(area)
-		current_health -= 1
-		if current_health <= 0:
-			set_physics_process(false)
-			death_sprite.play("explode")
-			await get_tree().create_timer(0.5).timeout
-			get_tree().change_scene_to_file("res://MenuAssets/death_menu.tscn")
-			current_health = 3
-		health_changed.emit(current_health)
-		is_hurt = true
-			
-		knockback()
-		effects.play("hurt_blink")
-		hurt_timer.start()
-		await hurt_timer.timeout
-		effects.play("RESET")
-		is_hurt = false
 		
 func knockback():
 	velocity.x = knockback_speed
@@ -171,3 +171,4 @@ func _on_hurtbox_area_exited(area):
 
 func _on_attack_cooldown_timeout():
 	can_slash = true
+	
