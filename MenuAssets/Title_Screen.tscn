@@ -48,6 +48,18 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
 
+[node name="Label" type="Label" parent="." unique_id=1844793336]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 54.0
+offset_right = 1011.0
+offset_bottom = 155.0
+text = "use arrow keys to move
+z/up arrow - jump   x - attack  shift/c - dash
+escape - open escape menu
+Goal is to kill the boss!
+"
+
 [connection signal="pressed" from="OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

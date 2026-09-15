@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 const SPEED = 100.0
-var direction = 1
+var dir = 1
+var direction : Vector2
 var health:int = 3
 var max_health:int: set = set_max_health
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -17,7 +18,6 @@ func set_max_health(value: int):
 
 func ready():
 	max_health = 50
-	set_physics_process(false)
 	$hurtbox/CollisionShape2D.disabled = true
 	$hitbox/CollisionShape2D.disabled = true
 
@@ -25,12 +25,12 @@ func take_damage(amount: int):
 	health -= amount
 	print(health)
 
-func _process(delta):
+func _process(_delta):
 	if Right_Ray.is_colliding():
-		direction = 1
+		dir = 1
 		sprite.flip_h = true
 	if Left_Ray.is_colliding():
-		direction = -1
+		dir = -1
 		sprite.flip_h = false
 		
 func _on_hurtbox_area_entered(area):
@@ -43,3 +43,5 @@ func _physics_process(delta):
 		gravity = lerp(gravity, max_gravity, 12.0 * delta)
 	velocity.y += gravity
 	move_and_slide()
+	velocity = direction.normalized() * 40
+	move_and_collide(velocity * delta)

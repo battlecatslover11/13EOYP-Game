@@ -125,6 +125,13 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 31
 text = "Quit"
 
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=11395846]
+layout_mode = 2
+text = "use arrow keys to move
+z/up arrow - jump   x - attack  shift/c - dash
+Goal is to kill the boss!
+"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=678514405]
 libraries/ = SubResource("AnimationLibrary_p81d2")
 

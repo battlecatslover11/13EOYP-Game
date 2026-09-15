@@ -392,7 +392,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=965177333]
+[node name="player" type="CharacterBody2D" unique_id=965177333]
 script = ExtResource("1_kpjcp")
 max_health = 3
 
@@ -461,6 +461,7 @@ sprite_frames = SubResource("SpriteFrames_q30hd")
 animation = &"explode"
 
 [node name="Attack_Cooldown" type="Timer" parent="." unique_id=1136098526]
+wait_time = 0.6
 
 [node name="DeathTimer" type="Timer" parent="." unique_id=1387865381]
 wait_time = 0.5

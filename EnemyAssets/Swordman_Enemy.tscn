@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://duppwl8j2fo1d" path="res://EnemyAssets/finite_state_machine.gd" id="5_4hpaf"]
 [ext_resource type="Script" uid="uid://dfiucjdnepdik" path="res://EnemyAssets/idle.gd" id="6_ok1mm"]
 [ext_resource type="Script" uid="uid://bwsqr1cnvjt7v" path="res://Scripts/state.gd" id="6_xfhwb"]
+[ext_resource type="Script" uid="uid://csrsqegs7tpar" path="res://EnemyAssets/follow.gd" id="7_7rlix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpxcd"]
 size = Vector2(16, 16)
@@ -246,16 +247,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -39.0
-offset_top = -11.5
-offset_right = 39.0
-offset_bottom = 11.5
+offset_left = -150.5
+offset_top = -34.5
+offset_right = 150.5
+offset_bottom = 34.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Boss Slained"
 
 [node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=639119553]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 anchors_preset = 7
 anchor_left = 0.5
@@ -298,7 +300,7 @@ script = ExtResource("5_4hpaf")
 script = ExtResource("6_ok1mm")
 
 [node name="Follow" type="Node2D" parent="FiniteStateMachine" unique_id=312267938]
-script = ExtResource("6_xfhwb")
+script = ExtResource("7_7rlix")
 
 [node name="Attack" type="Node2D" parent="FiniteStateMachine" unique_id=1785852703]
 script = ExtResource("6_xfhwb")
@@ -308,5 +310,4 @@ script = ExtResource("6_xfhwb")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
-[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
