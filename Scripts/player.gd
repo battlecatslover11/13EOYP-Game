@@ -27,7 +27,7 @@ var enemy_collisions = []
 @onready var effects = $Effect
 @onready var hurt_timer = $HurtTimer 
 
-func ready():
+func _ready():
 	effects.play("RESET")
 	$AnimatedSprite2D/Sword.show_behind_parent = false
 var wallcontact_coyote: float = 0.0
@@ -113,6 +113,9 @@ func _physics_process(delta):
 		JumpBufferTimer.stop()
 		CoyoteTimer.stop()
 		coyote_activate = true
+		
+	if enemy_collisions.size() > 0 and not is_hurt:
+		hurt_by_enemy(enemy_collisions[0])
 				
 	velocity.y += gravity
 	move_and_slide()
@@ -138,7 +141,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	$Attack_Cooldown.start()
 	await $Attack_Cooldown.timeout
 	
-func hurt_by_enemy(area):
+func hurt_by_enemy(_enemy = null):
 	current_health -= 1
 	if current_health <= 0:
 		set_physics_process(false)
@@ -147,6 +150,8 @@ func hurt_by_enemy(area):
 		get_tree().change_scene_to_file("res://MenuAssets/death_menu.tscn")
 		current_health = 3
 	health_changed.emit(current_health)
+	if is_hurt:
+		return
 	is_hurt = true
 			
 	knockback()

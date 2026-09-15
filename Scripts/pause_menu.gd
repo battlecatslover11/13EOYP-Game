@@ -27,7 +27,7 @@ func _on_quit_pressed():
 	resume()
 	get_tree().change_scene_to_file("res://MenuAssets/Title_Screen.tscn")
 	
-func _process(delta):
+func _process(_delta):
 	testEsc()
 	
 func _on_restart_pressed():
