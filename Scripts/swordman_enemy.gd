@@ -55,7 +55,6 @@ func take_damage(amount: int = 1):
 	
 	#reduces health by a certain amount
 	health -= amount	 	
-	print(health)
 
 #function for process
 func _process(_delta):

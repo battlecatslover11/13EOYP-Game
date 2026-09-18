@@ -16,6 +16,8 @@ func _on_area_entered(area):
 	
 	#if conditions are met the enemy will take damage
 	if target and target.has_method("take_damage"):
+		
+		#target takes damage
 		target.take_damage(damage)
 		
 #function for if body is entered

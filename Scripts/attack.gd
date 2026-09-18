@@ -6,6 +6,8 @@ var is_attack: bool = false
 
 #function to enter state
 func enter():
+	
+	#access function from parent node
 	super.enter()
 	
 	#calls the attack function
@@ -38,6 +40,8 @@ func transition():
 		
 	#if player leaves a certain radius state changes to follow
 	if owner.direction.length() > 40:
+		
+		#change state to follow
 		get_parent().change_state("Follow")
 	else:
 		

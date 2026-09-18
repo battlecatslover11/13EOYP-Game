@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bvr7s3qmxsmau" path="res://Scripts/main_scene.gd" id="1_4ityq"]
 [ext_resource type="Texture2D" uid="uid://c25yh60ymc7tn" path="res://BlockAssets/placeholder grid.png" id="1_8sucx"]
-[ext_resource type="PackedScene" uid="uid://4s5un8f7wmr2" path="res://PlayerAssets/Player.tscn" id="2_7fr83"]
+[ext_resource type="PackedScene" uid="uid://4s5un8f7wmr2" path="res://Scenes/player.tscn" id="2_7fr83"]
 [ext_resource type="Texture2D" uid="uid://8c764ksmlags" path="res://BlockAssets/placeholder slope.png" id="2_tkmsp"]
 [ext_resource type="Texture2D" uid="uid://kcyqn0apcj5d" path="res://BlockAssets/placeholder slope 2.png" id="3_5yw3w"]
 [ext_resource type="Texture2D" uid="uid://dis3q24m1ur43" path="res://BlockAssets/wood.png" id="5_3qyon"]
-[ext_resource type="PackedScene" uid="uid://c2ix3082ubx1p" path="res://EnemyAssets/Swordman_Enemy.tscn" id="5_qtktj"]
-[ext_resource type="PackedScene" uid="uid://6r0wsqwwbioy" path="res://ItemAssets/Collectible_Healing.tscn" id="6_654x7"]
-[ext_resource type="PackedScene" uid="uid://byue05bqxs2di" path="res://PlayerAssets/heartContianer.tscn" id="7_lhke2"]
-[ext_resource type="PackedScene" uid="uid://ilf8vjk7imls" path="res://pause_menu.tscn" id="9_wqxms"]
+[ext_resource type="PackedScene" uid="uid://c2ix3082ubx1p" path="res://Scenes/Swordman_Enemy.tscn" id="5_qtktj"]
+[ext_resource type="PackedScene" uid="uid://6r0wsqwwbioy" path="res://Scenes/Collectible_Healing.tscn" id="6_654x7"]
+[ext_resource type="PackedScene" uid="uid://byue05bqxs2di" path="res://Scenes/heartContianer.tscn" id="7_lhke2"]
+[ext_resource type="PackedScene" uid="uid://ilf8vjk7imls" path="res://Scenes/pause_menu.tscn" id="9_wqxms"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fr83"]
 texture = ExtResource("1_8sucx")

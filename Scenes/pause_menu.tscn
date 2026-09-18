@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ilf8vjk7imls"]
 
-[ext_resource type="Shader" uid="uid://b0rn3rue4edmi" path="res://new_shader.gdshader" id="1_hdmo1"]
-[ext_resource type="Script" uid="uid://4crrh8uhd4ua" path="res://Scripts/pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="Script" uid="uid://4crrh8uhd4ua" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
+[ext_resource type="Shader" uid="uid://b0rn3rue4edmi" path="res://ItemAssets/new_shader.gdshader" id="2_1och7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vpnsq"]
-shader = ExtResource("1_hdmo1")
+shader = ExtResource("2_1och7")
 shader_parameter/lod = 0.0
 
 [sub_resource type="Animation" id="Animation_nwcfo"]
@@ -74,7 +74,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nwcfo")
+script = ExtResource("1_k0w1u")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2095736948]
 material = SubResource("ShaderMaterial_vpnsq")

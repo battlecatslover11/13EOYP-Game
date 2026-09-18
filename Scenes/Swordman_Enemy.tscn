@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dul13eqay6u05" path="res://EnemyAssets/Idle.png" id="4_516mf"]
 [ext_resource type="Script" uid="uid://c0s0lb4lkm2bd" path="res://Scripts/state_machine.gd" id="5_4hpaf"]
 [ext_resource type="Texture2D" uid="uid://b3vn22lvhchgh" path="res://EnemyAssets/death.png" id="5_xh5gx"]
-[ext_resource type="Script" uid="uid://bm6pwdv5o87l5" path="res://EnemyAssets/hurtbox.gd" id="6_5upj6"]
 [ext_resource type="Script" uid="uid://0t204gbyp3mh" path="res://Scripts/follow.gd" id="7_7rlix"]
 [ext_resource type="Script" uid="uid://dfiucjdnepdik" path="res://Scripts/idle.gd" id="7_ok1mm"]
 [ext_resource type="Script" uid="uid://b8juidg2pcgwb" path="res://Scripts/attack.gd" id="8_5cvvl"]
@@ -337,7 +336,6 @@ target_position = Vector2(-12, 0)
 [node name="hurtbox" type="Area2D" parent="." unique_id=591508521 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 8
-script = ExtResource("6_5upj6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1270408558]
 position = Vector2(-0.5, -7.5)

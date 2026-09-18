@@ -208,7 +208,7 @@ func take_damage(_enemy = null):
 		
 		#creates a timer to wait for and then changes to death menu
 		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://MenuAssets/death_menu.tscn")
+		get_tree().change_scene_to_file("res://Scenes/death_menu.tscn")
 		
 		#resets health back to 3
 		current_health = 3

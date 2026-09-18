@@ -2,7 +2,7 @@
 extends HBoxContainer
 
 #loads the heart gui
-@onready var HeartGuiClass = preload("res://PlayerAssets/heart_gui.tscn")
+@onready var HeartGuiClass = preload("res://Scenes/heart_gui.tscn")
 	
 #function to set the maximum amount of health
 func setMaxHearts(max: int):

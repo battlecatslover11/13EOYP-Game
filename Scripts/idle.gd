@@ -14,7 +14,6 @@ var player_entered: bool = false:
 		progress_bar.set_deferred("visible", value)
 		
 func _on_player_detection_body_entered(body):
-	print("Body entered area: ", body.name)
 	if body.is_in_group("player"):
 		self.player_entered = true
 		

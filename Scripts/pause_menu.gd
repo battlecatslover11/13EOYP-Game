@@ -62,7 +62,7 @@ func _on_quit_pressed():
 	resume()
 	
 	#changes the scene to the main menu
-	get_tree().change_scene_to_file("res://MenuAssets/Title_Screen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Title_Screen.tscn")
 
 #calls function for test escape
 func _process(_delta):
