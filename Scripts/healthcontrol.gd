@@ -1,7 +1,8 @@
+#extends node2d for health control
 extends Node2D
 
-var health:int 
-var max_health:int 
+#health variable
+var health:int
 
-func take_damage(amount: int):
-	health -= amount
+#max health variable
+var max_health:int 

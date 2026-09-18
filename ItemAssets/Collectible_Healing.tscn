@@ -18,6 +18,7 @@ animations = [{
 size = Vector2(8, 8)
 
 [node name="Healing_Item" type="Area2D" unique_id=1233797065]
+collision_mask = 2
 script = ExtResource("1_5ulxr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1014532807]
